@@ -1,13 +1,13 @@
 /* Common */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
 }
 
 .background-chat-img {
     background-image: url("../img/mine.jpg");
     object-fit: cover;
-    height: 500px;
+    height: 100vh;
 }
 
 /* Utilities */

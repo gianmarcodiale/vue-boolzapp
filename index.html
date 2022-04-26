@@ -54,10 +54,10 @@
                         </div>
                         <input type="text" class="w-100 border" placeholder="Cerca...">
                     </div>
-                    <div class="contacts d-flex align-items-center p-1">
-                        <img src="./assets/img/avatar_1.jpg" alt="" class="img-fluid" style="width:50px; border-radius:50%">
+                    <div class="contacts d-flex align-items-center p-1" v-for="contact in contacts">
+                        <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid" style="width:50px; border-radius:50%">
                         <div class="contact-info ms-1">
-                            <span>Luca</span><br>
+                            <span>{{contact.name}}</span><br>
                             <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio inviato</span>
                         </div>
                     </div>
