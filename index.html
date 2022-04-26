@@ -27,18 +27,42 @@
     <div id="app">
         <div class="container">
             <div class="row">
-                <div class="col-3 d-flex justify-content-between align-items-center">
-                    <div class="user">
-                        <img src="./assets/img/avatar_2.jpg" alt="" class="img-fluid" style="width:50px; border-radius:50%">
-                        <span>Gianmarco</span>
+                <div class="col-4 d-flex flex-column gy-4">
+                    <div class="user-info d-flex justify-content-between align-items-center p-1">
+                        <div class="user">
+                            <img src="./assets/img/avatar_2.jpg" alt="" class="img-fluid" style="width:50px; border-radius:50%">
+                            <span>Gianmarco</span>
+                        </div>
+                        <div class="actions">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
                     </div>
-                    <div class="actions">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <div class="notification d-flex align-items-center p-1">
+                        <div class="notification-icon me-2">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="notification-text">
+                            <span>Ricevi notifiche di nuovi messaggi</span><br>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+                    <div class="search-contacts d-flex p-1">
+                        <div class="search-icon p-1 border">
+                            <i class="fa-solid fa-magnifying-glass p-2"></i>
+                        </div>
+                        <input type="text" class="w-100 border" placeholder="Cerca...">
+                    </div>
+                    <div class="contacts d-flex align-items-center p-1">
+                        <img src="./assets/img/avatar_1.jpg" alt="" class="img-fluid" style="width:50px; border-radius:50%">
+                        <div class="contact-info ms-1">
+                            <span>Luca</span><br>
+                            <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio inviato</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-9"></div>
+                <div class="col-8"></div>
             </div>
         </div>
     </div>

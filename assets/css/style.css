@@ -2,3 +2,32 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+/* Utilities */
+.user-info {
+    background-color: #EAEAEA;
+}
+
+.notification {
+    background-color: #8EDAFC;
+}
+
+.notification-icon>i {
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    color: #8EDAFC;
+}
+
+.search-contacts {
+    background-color: #FAFAFA;
+}
+
+.search-contacts input {
+    border: none;
+}
+
+.contacts:hover {
+    background-color: #E9EBEB;
+}
