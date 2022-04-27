@@ -2,6 +2,7 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            activeChat: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -164,7 +165,16 @@ const app = new Vue(
                         }
                     ],
                 }
-            ]
+            ],
+        },
+        methods: {
+            setActive(index) {
+                // console.log(this.contacts[index].visible);
+                this.activeChat = index;
+                // console.log(this.activeChat);
+                
+                // console.log(active);
+            }
         }
     }
 )

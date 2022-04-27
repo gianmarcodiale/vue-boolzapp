@@ -1,13 +1,19 @@
 /* Common */
-body {
-    font-family: Arial, Helvetica, sans-serif;
+#app {
     height: 100vh;
+    overflow: auto;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: linear-gradient(to bottom, #009688 20%, white 20% 100%);
 }
 
 .background-chat-img {
     background-image: url("../img/mine.jpg");
     object-fit: cover;
-    height: 100vh;
+    height: 100%;
 }
 
 /* Utilities */
@@ -37,7 +43,7 @@ body {
 }
 
 .contacts:hover {
-    background-color: #E9EBEB;
+    background-color: #FAFAFA;
 }
 
 .chat-actions {
@@ -49,6 +55,7 @@ body {
     padding: 1rem;
     width: 30%;
     border-radius: 1rem;
+    align-self: flex-end;
 }
 
 .received {
@@ -56,11 +63,16 @@ body {
     padding: 1rem;
     width: 30%;
     border-radius: 1rem;
+    align-self: flex-start;
 }
 
 .vocal,
 .emoji,
 .chat-message {
+    background-color: #E9EBEB;
+}
+
+.active {
     background-color: #E9EBEB;
 }
 
