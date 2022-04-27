@@ -2,6 +2,7 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            search: '',
             newMessage: '',
             activeChat: 0,
             contacts: [
@@ -170,11 +171,8 @@ const app = new Vue(
         },
         methods: {
             setActive(index) {
-                // console.log(this.contacts[index].visible);
                 this.activeChat = index;
                 // console.log(this.activeChat);
-                
-                // console.log(active);
             },
             sendMessage() {
                 // console.log(this.newMessage);
@@ -183,6 +181,13 @@ const app = new Vue(
                 setTimeout(() => {
                     this.contacts[this.activeChat].messages.push({date : new Date(), message : 'Ok!', status : 'received'})
                 }, 1000)
+            },
+        },
+        computed: {
+            contactsFilter() {
+                return this.contacts.filter(contact => {
+                    return contact.name.toLowerCase().includes(this.search.toLowerCase());
+                })
             }
         }
     }

@@ -4,9 +4,8 @@
 }
 
 body {
-    overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, #009688 20%, #D7DBD8 20% 100%);
+    background: linear-gradient(to bottom, #009688 0px, #009688 120px, #D7DBD8 120px, #D7DBD8 100%);
 }
 
 .background-chat-img {

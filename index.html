@@ -57,10 +57,10 @@
                         <div class="search-icon p-1 border">
                             <i class="fa-solid fa-magnifying-glass p-2"></i>
                         </div>
-                        <input type="text" class="w-100 border" placeholder="Cerca...">
+                        <input type="text" class="w-100 border" placeholder="Cerca..." v-model="search">
                     </div>
                     <!-- contacts list -->
-                    <div class="contacts d-flex align-items-center p-1" v-for="(contact, index) in contacts" :class="index === activeChat ? 'active' : ''" @click="setActive(index)">
+                    <div class="contacts d-flex align-items-center p-1" v-for="(contact, index) in contactsFilter" :class="index === activeChat ? 'active' : ''" @click="setActive(index)">
                         <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid" style="width:50px; border-radius:50%">
                         <div class="contact-info ms-1">
                             <span>{{contact.name}}</span><br>
