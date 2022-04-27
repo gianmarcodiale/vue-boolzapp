@@ -2,6 +2,7 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            newMessage: '',
             activeChat: 0,
             contacts: [
                 {
@@ -174,6 +175,10 @@ const app = new Vue(
                 // console.log(this.activeChat);
                 
                 // console.log(active);
+            },
+            sendMessage() {
+                // console.log(this.newMessage);
+                this.contacts[this.activeChat].messages.push({date : new Date(), message : this.newMessage, status : 'sent'})
             }
         }
     }
