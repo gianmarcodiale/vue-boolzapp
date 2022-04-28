@@ -65,7 +65,7 @@
                             <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid" style="width:50px; border-radius:50%">
                             <div class="contact-info ms-1">
                                 <span>{{contact.name}}</span><br>
-                                <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio inviato</span>
+                                <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio ricevuto</span>
                             </div>
                         </div>
                     </div>
@@ -90,8 +90,13 @@
                     </div>
                     <!-- chat screen -->
                     <div class="background-chat-img d-flex flex-column">
-                        <div class="messages d-flex flex-column" v-for="message in contacts[activeChat].messages">
-                            <div class="messages d-flex flex-column send me-4 ms-4 mt-3 mb-3" :class="message.status === 'sent' ? 'sent' : 'received'">
+                        <div class="chat-screen d-flex flex-column">
+                            <div class="messages d-flex flex-column me-4 ms-4 mt-3 mb-3" :class="message.status === 'sent' ? 'sent' : 'received'" v-for="(message, index) in contacts[activeChat].messages">
+                                <i class="fa-solid fa-chevron-down" @click="openMenu(index)"></i>
+                                <div class="message-options">
+                                    <span>Message info</span><br>
+                                    <span>Delete message</span>
+                                </div>
                                 <p>{{message.message}}</p>
                                 <small>{{message.date}}</small>
                             </div>

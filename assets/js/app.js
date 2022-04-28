@@ -190,14 +190,12 @@ const app = new Vue(
                         contact.visible = false
                     }
                 })
-            }
-        },
-        /* computed: {
-            contactsFilter() {
-                return this.contacts.filter(contact => {
-                    return contact.name.toLowerCase().includes(this.search.toLowerCase());
+            },
+            openMenu(index) {
+                this.contacts[index].messages.forEach(message => {
+                    document.querySelector('.message-options').style.display='block'
                 })
             }
-        } */
+        },
     }
 )

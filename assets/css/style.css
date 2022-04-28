@@ -19,6 +19,7 @@ body {
 .contact-list {
     height: 400px;
     overflow: scroll;
+    background-color: white;
 }
 
 /* Utilities */
@@ -73,7 +74,7 @@ body {
     color: #B1B1B1;
 }
 
-.send {
+.sent {
     background-color: #D5F9BA;
     padding: 1rem;
     width: 30%;
@@ -102,6 +103,38 @@ body {
 .chat-message {
     height: 50px;
     position: sticky;
+}
+
+.messages {
+    position: relative;
+}
+
+.messages>small {
+    font-size: 10px;
+    color: gray;
+    text-align: end;
+}
+
+.messages>i {
+    position: absolute;
+    bottom: 35px;
+    right: 15px;
+    display: none;
+}
+
+.messages:hover i {
+    display: block;
+}
+
+.message-options {
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem;
+    font-size: 12px;
+    bottom: -20px;
+    right: 5px;
+    display: none;
+    border-radius: 0.5rem;
 }
 
 .active {
