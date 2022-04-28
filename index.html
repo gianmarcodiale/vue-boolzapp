@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row g-0">
                 <!-- section aside -->
-                <div class="col-4 d-flex flex-column gy-4">
+                <div class="aside col-4 d-flex flex-column gy-4">
                     <!-- user info -->
                     <div class="user-info d-flex justify-content-between align-items-center p-1">
                         <div class="user">
@@ -57,19 +57,21 @@
                         <div class="search-icon p-1 border">
                             <i class="fa-solid fa-magnifying-glass p-2"></i>
                         </div>
-                        <input type="text" class="w-100 border" placeholder="Cerca..." v-model="search">
+                        <input type="text" class="w-100 border" placeholder="Cerca..." v-model="search" @keyup="contactsFilter">
                     </div>
                     <!-- contacts list -->
-                    <div class="contacts d-flex align-items-center p-1" v-for="(contact, index) in contactsFilter" :class="index === activeChat ? 'active' : ''" @click="setActive(index)">
-                        <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid" style="width:50px; border-radius:50%">
-                        <div class="contact-info ms-1">
-                            <span>{{contact.name}}</span><br>
-                            <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio inviato</span>
+                    <div class="contact-list">
+                        <div class="contacts d-flex align-items-center p-1" v-for="(contact, index) in contacts" :class="index === activeChat ? 'active' : ''" @click="setActive(index)" v-if="contacts[index].visible">
+                            <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid" style="width:50px; border-radius:50%">
+                            <div class="contact-info ms-1">
+                                <span>{{contact.name}}</span><br>
+                                <span class="text-thin fw-light" style="font-size:12px">Ultimo messaggio inviato</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- section main -->
-                <div class="col-8 d-flex flex-column gy-4">
+                <div class="chat col-8 d-flex flex-column gy-4">
                     <div class="contact-chat border-start d-flex align-items-center p-1 justify-content-between">
                         <!-- contact info -->
                         <div class="contact-info d-flex">
@@ -89,8 +91,9 @@
                     <!-- chat screen -->
                     <div class="background-chat-img d-flex flex-column">
                         <div class="messages d-flex flex-column" v-for="message in contacts[activeChat].messages">
-                            <div class="messages d-flex flex-column send me-4 ms-4 mt-3" :class="message.status === 'sent' ? 'sent' : 'received'">
+                            <div class="messages d-flex flex-column send me-4 ms-4 mt-3 mb-3" :class="message.status === 'sent' ? 'sent' : 'received'">
                                 <p>{{message.message}}</p>
+                                <small>{{message.date}}</small>
                             </div>
                         </div>
                     </div>

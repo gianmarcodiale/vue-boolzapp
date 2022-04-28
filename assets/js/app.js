@@ -176,19 +176,28 @@ const app = new Vue(
             },
             sendMessage() {
                 // console.log(this.newMessage);
-                this.contacts[this.activeChat].messages.push({date : new Date(), message : this.newMessage, status : 'sent'});
+                this.contacts[this.activeChat].messages.push({date : new Date().toLocaleString('it'), message : this.newMessage, status : 'sent'});
                 this.newMessage = '';
                 setTimeout(() => {
-                    this.contacts[this.activeChat].messages.push({date : new Date(), message : 'Ok!', status : 'received'})
+                    this.contacts[this.activeChat].messages.push({date : new Date().toLocaleString('it'), message : 'Ok!', status : 'received'})
                 }, 1000)
             },
+            contactsFilter() {
+                this.contacts.forEach(contact => {
+                    if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+                        contact.visible = true
+                    } else {
+                        contact.visible = false
+                    }
+                })
+            }
         },
-        computed: {
+        /* computed: {
             contactsFilter() {
                 return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase());
                 })
             }
-        }
+        } */
     }
 )
