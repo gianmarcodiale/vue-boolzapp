@@ -92,10 +92,10 @@
                     <div class="background-chat-img d-flex flex-column">
                         <div class="chat-screen d-flex flex-column">
                             <div class="messages d-flex flex-column me-4 ms-4 mt-3 mb-3" :class="message.status === 'sent' ? 'sent' : 'received'" v-for="(message, index) in contacts[activeChat].messages">
-                                <i class="fa-solid fa-chevron-down" @click="openMenu(index)"></i>
-                                <div class="message-options">
+                                <i class="fa-solid fa-chevron-down" @click="selectMessage(index, message)"></i>
+                                <div class="message-options border" v-show="selectedMessage.status && selectedMessage.index === index">
                                     <span>Message info</span><br>
-                                    <span>Delete message</span>
+                                    <span @click="deleteMessage(index, contacts[activeChat].messages)">Delete message</span>
                                 </div>
                                 <p>{{message.message}}</p>
                                 <small>{{message.date}}</small>

@@ -2,6 +2,10 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            selectedMessage: {
+                index: false,
+                status: false
+            },
             search: '',
             newMessage: '',
             activeChat: 0,
@@ -173,6 +177,8 @@ const app = new Vue(
             setActive(index) {
                 this.activeChat = index;
                 // console.log(this.activeChat);
+                this.selectedMessage.index = false
+                this.selectedMessage.status = false
             },
             sendMessage() {
                 // console.log(this.newMessage);
@@ -191,10 +197,17 @@ const app = new Vue(
                     }
                 })
             },
-            openMenu(index) {
-                this.contacts[index].messages.forEach(message => {
-                    document.querySelector('.message-options').style.display='block'
-                })
+            selectMessage(index) {
+                if (this.selectedMessage.index === index) {
+                    this.selectedMessage.status = false
+                    this.selectedMessage.index = false
+                    return
+                }
+                this.selectedMessage.index = index
+                this.selectedMessage.status = true
+            },
+            deleteMessage(index, message) {
+                message.splice(index, 1)
             }
         },
     }
